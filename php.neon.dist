@@ -1,0 +1,45 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+
+    # Enable caching
+    tmpDir: tmp
+
+    paths:
+        - app/
+        - database/
+        - config/
+        - routes/
+        - tests/
+
+    excludePaths:
+        - vendor/
+
+    # Level 9 is the highest level
+    # Don't use level 9 as it does not allowed `mixed`
+    level: 8
+
+    exceptions:
+        check:
+            missingCheckedExceptionInThrows: true
+            tooWideThrowType: true
+
+    earlyTerminatingFunctionCalls:
+        - abort
+
+    checkModelProperties: true
+
+    checkBenevolentUnionTypes: true
+
+    reportAlwaysTrueInLastCondition: true
+
+    checkMissingOverrideMethodAttribute: true
+
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
+#
+#
+#    checkMissingIterableValueType: false
