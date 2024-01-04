@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
-    protected $models = Post::class;
+    protected $model = Post::class;
 
     public function definition(): array
     {
